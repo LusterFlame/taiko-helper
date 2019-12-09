@@ -30,10 +30,10 @@ machine = TocMachine(
         },
         {
             "trigger": "reset",
-            "source": states,
+            "source": ["entry", "state1", "state2"],
             "dest": "entry",
             "conditions": "return_to_entry"
-        }
+        },
         {"trigger": "go_back", "source": ["state1", "state2"], "dest": "entry"},
     ],
     initial="entry",
