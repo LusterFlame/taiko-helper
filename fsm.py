@@ -34,3 +34,6 @@ class TocMachine(GraphMachine):
 
     def on_exit_state2(self):
         print("Leaving state2")
+
+    def return_to_entry(self):
+        print("I am resetting")
