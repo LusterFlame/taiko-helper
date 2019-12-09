@@ -15,6 +15,12 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "go to state2"
 
+    def return_to_entry(self, event):
+        text = event.message.text
+        return text.lower() == "reset"
+
+##########################################################
+
     def on_enter_state1(self, event):
         print("I'm entering state1")
 
@@ -22,8 +28,10 @@ class TocMachine(GraphMachine):
         send_text_message(reply_token, "Trigger state1")
         # self.go_back()
 
-    def on_exit_state1(self):
+    def on_exit_state1(self, event):
         print("Leaving state1")
+
+##########################################################
 
     def on_enter_state2(self, event):
         print("I'm entering state2")
@@ -32,8 +40,13 @@ class TocMachine(GraphMachine):
         send_text_message(reply_token, "Trigger state2")
         # self.go_back()
 
-    def on_exit_state2(self):
+    def on_exit_state2(self, event):
         print("Leaving state2")
 
-    def return_to_entry(self):
-        print("I am resetting")
+##########################################################
+
+    def on_enter_entry(self, event):
+        print("Entering entry")
+
+    def on_exit_entry(self, event):
+        pring("Exiting entry")
