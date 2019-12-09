@@ -47,6 +47,8 @@ class TocMachine(GraphMachine):
 
     def on_enter_entry(self, event):
         print("Entering entry")
+        reply_token = event.reply_token
+        send_text_message(reply_token, "Resetted")
 
     def on_exit_entry(self, event):
         pring("Exiting entry")
